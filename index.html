@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShopSwift — Simple E‑commerce</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="topbar container">
+    <div class="brand">
+      <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7 4h10l1 3h3v2h-2l-2 9H7L5 9H3V7h3l1-3zm2.2 3  -.7 2h8.9l-.7-2H9.2zM9 12a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm6 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" fill="currentColor"/>
+      </svg>
+      <span>ShopSwift</span>
+    </div>
+
+    <div class="controls">
+      <div class="search">
+        <input id="searchInput" type="search" placeholder="Search products… (e.g., shoes)" />
+      </div>
+      <select id="categoryFilter" aria-label="Filter by category">
+        <option value="all">All Categories</option>
+      </select>
+      <select id="sortSelect" aria-label="Sort products">
+        <option value="popular">Sort: Most popular</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="name-asc">Name: A → Z</option>
+      </select>
+
+      <button id="themeToggle" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">
+        <span class="icon">🌙</span>
+      </button>
+
+      <button id="cartButton" class="cart-btn" aria-haspopup="dialog" aria-controls="cartPanel">
+        <span class="icon" aria-hidden="true">🛒</span>
+        <span>Cart</span>
+        <span id="cartCount" class="badge">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="banner" class="banner">
+      <div class="banner-content">
+        <h1>Fresh picks for you</h1>
+        <p>Browse curated products across fashion, gadgets, and home. Add to cart and keep shopping — we’ll save your cart.</p>
+        <a href="#products" class="cta">Shop now</a>
+      </div>
+    </section>
+
+    <section id="products" class="products">
+      <!-- Products will render here -->
+    </section>
+  </main>
+
+  <aside id="cartPanel" class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="cart-header">
+      <h2 id="cartTitle">Your Cart</h2>
+      <button id="closeCart" class="icon-btn" aria-label="Close cart">✕</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="totals">
+        <span>Subtotal</span>
+        <strong id="cartSubtotal">₹0</strong>
+      </div>
+      <button id="checkoutBtn" class="checkout">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <div id="overlay" class="overlay" hidden></div>
+
+  <footer class="footer container">
+    <p>© <span id="year"></span> ShopSwift. Built with HTML, CSS & JS.</p>
+  </footer>
+
+  <!-- Product modal -->
+  <dialog id="productModal" class="product-modal">
+    <div class="modal-body">
+      <img id="modalImage" alt="" />
+      <div class="modal-info">
+        <h3 id="modalTitle"></h3>
+        <div id="modalRating" class="rating"></div>
+        <p id="modalDesc"></p>
+        <div class="price-row">
+          <strong id="modalPrice"></strong>
+          <button id="modalAdd" class="add">Add to cart</button>
+        </div>
+      </div>
+    </div>
+    <form method="dialog">
+      <button class="icon-btn close">Close</button>
+    </form>
+  </dialog>
+</body>
+</html>
